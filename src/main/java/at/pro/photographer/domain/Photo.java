@@ -1,7 +1,14 @@
 package at.pro.photographer.domain;
 
+import lombok.*;
+
 import java.time.LocalDateTime;
 
+
+@Data
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
+@Builder
 public class Photo
 {
     private String fileName;
