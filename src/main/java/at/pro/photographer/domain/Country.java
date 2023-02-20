@@ -7,8 +7,7 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @Builder
-public abstract class AbstractPerson {
-    private String userName;
-    private String firstName;
-    private String lastName;
+public class Country {
+    private String name;
+    private String iso2Code;
 }

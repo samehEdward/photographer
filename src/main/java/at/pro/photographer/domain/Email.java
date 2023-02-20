@@ -1,14 +1,12 @@
 package at.pro.photographer.domain;
 
-
 import lombok.*;
 
 @Data
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @Builder
-public abstract class AbstractPerson {
-    private String userName;
-    private String firstName;
-    private String lastName;
+public class Email {
+    private String address;
+    private EmailType Type;
 }
