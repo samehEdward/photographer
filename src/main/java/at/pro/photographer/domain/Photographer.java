@@ -7,9 +7,8 @@ import lombok.*;
 import java.util.Set;
 
 @Data
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@Builder
 public class Photographer extends AbstractPerson {
 
     private Address studioAddress;

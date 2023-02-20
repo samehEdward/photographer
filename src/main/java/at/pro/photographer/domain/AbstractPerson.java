@@ -4,9 +4,8 @@ package at.pro.photographer.domain;
 import lombok.*;
 
 @Data
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public abstract class AbstractPerson {
     private String userName;
     private String firstName;
