@@ -36,7 +36,7 @@ class PhotoRepoTest {
                 .orientation(Orientation.LANDSCAPE)
                 .build();
         // when / act
-        var saved = photoRepo.save(photo);
+        var saved = photoRepo.saveAndFlush(photo);
 
         //then / assert
         assumeThat(saved).isSameAs(photo);

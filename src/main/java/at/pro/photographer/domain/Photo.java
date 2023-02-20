@@ -1,7 +1,6 @@
 package at.pro.photographer.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -22,9 +21,11 @@ public class Photo extends AbstractPersistable<Long>
 
     private String fileName;
     private String name;
+    @Column(name = "creating_ts")
     private LocalDateTime creationTS;
     private Integer width;
     private Integer height;
+    @Enumerated(EnumType.STRING)
     private Orientation orientation;
 
 }
