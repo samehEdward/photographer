@@ -11,5 +11,5 @@ import java.util.List;
 public interface PhotoRepo extends JpaRepository<Photo, Long> {
 
 
-    List<Photo> findAllByCreationTSBetween(LocalDateTime startTS, LocalDateTime endTS);
+    List<Photo> findAll();
 }
