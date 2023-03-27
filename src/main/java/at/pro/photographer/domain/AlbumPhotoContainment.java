@@ -7,12 +7,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import java.time.LocalDateTime;
+
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class PersonTag extends AbstractPersistable<Long> {
+public class AlbumPhotoContainment extends AbstractPersistable<Long> {
 
+    private Album album;
     private Photo photo;
-    private Person person;
-    private Integer rating;
+    private LocalDateTime assignmentTS;
 }

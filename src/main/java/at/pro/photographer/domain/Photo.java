@@ -25,6 +25,8 @@ public class Photo extends AbstractPersistable<Long>
     private LocalDateTime creationTS;
     private Integer width;
     private Integer height;
+    @ManyToOne
+    private Photographer photographer;
     @Enumerated(EnumType.STRING)
     private Orientation orientation;
 

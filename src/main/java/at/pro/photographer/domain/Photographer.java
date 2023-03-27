@@ -2,6 +2,7 @@ package at.pro.photographer.domain;
 
 
 
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Set;
@@ -9,9 +10,42 @@ import java.util.Set;
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+
+@Entity
+@Table(name = "photografers")
 public class Photographer extends AbstractPerson {
 
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "streetNumber", column = @Column(name = "studio_street_number")),
+            @AttributeOverride(name = "zipCode", column = @Column(name = "studio_zip_code")),
+            @AttributeOverride(name = "city", column = @Column(name = "studio_city"))
+
+    })
+
+    @AssociationOverrides({
+            @AssociationOverride(name = "country",
+            joinColumns = {@JoinColumn(name= "studio_country_id")},
+            foreignKey = @ForeignKey(name = "FK_photographers_studio_contry"))
+    })
+
     private Address studioAddress;
+
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "streetNumber", column = @Column(name = "biiling_street_number")),
+            @AttributeOverride(name = "zipCode", column = @Column(name = "biiling_zip_code")),
+            @AttributeOverride(name = "city", column = @Column(name = "biiling_city"))
+
+    })
+
+    @AssociationOverrides({
+            @AssociationOverride(name = "country",
+                    joinColumns = {@JoinColumn(name= "biiling_country_id")},
+                    foreignKey = @ForeignKey(name = "FK_photographers_studio_contry"))
+    })
+
     private Address biilingAddress;
     private PhoneNumber mobilePhoneNumber;
     private PhoneNumber businessPhoneNumber;
