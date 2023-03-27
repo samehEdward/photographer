@@ -5,6 +5,7 @@ package at.pro.photographer.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -50,15 +51,25 @@ public class Photographer extends AbstractPerson {
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "countryCode", column = @Column(name = "studio_country_code")),
-            @AttributeOverride(name = "areaCode", column = @Column(name = "studio_area_code")),
-            @AttributeOverride(name = "serialNumber", column = @Column(name = "studio_serial_number"))
+            @AttributeOverride(name = "countryCode", column = @Column(name = "mobil_country_code")),
+            @AttributeOverride(name = "areaCode", column = @Column(name = "mobil_area_code")),
+            @AttributeOverride(name = "serialNumber", column = @Column(name = "mobil_serial_number"))
 
     })
 
     private PhoneNumber mobilePhoneNumber;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "countryCode", column = @Column(name = "business_country_code")),
+            @AttributeOverride(name = "areaCode", column = @Column(name = "business_area_code")),
+            @AttributeOverride(name = "serialNumber", column = @Column(name = "business_serial_number"))
+
+    })
+
     private PhoneNumber businessPhoneNumber;
-    private Set<Email> emails;
+
+
+//    private Set<Email> emails = new HashSet<>(2);
 
 
 }
