@@ -12,7 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "photografers")
+@Table(name = "photographers")
 public class Photographer extends AbstractPerson {
 
     @Embedded
@@ -47,6 +47,15 @@ public class Photographer extends AbstractPerson {
     })
 
     private Address biilingAddress;
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "countryCode", column = @Column(name = "studio_country_code")),
+            @AttributeOverride(name = "areaCode", column = @Column(name = "studio_area_code")),
+            @AttributeOverride(name = "serialNumber", column = @Column(name = "studio_serial_number"))
+
+    })
+
     private PhoneNumber mobilePhoneNumber;
     private PhoneNumber businessPhoneNumber;
     private Set<Email> emails;
